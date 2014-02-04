@@ -3510,6 +3510,9 @@ if [ "$DAEMONS_RUNNING_FUNC" != "null" ] && [ $_START_DAEMONS -eq $BS_TRUE ]; th
     fi
 fi
 
+# Special OnShift Part!
+sed -i 's/#master: salt/master: ops0.onshift.com/g' /etc/salt/minion
+service salt-minion restart
 
 # Done!
 if [ $_CONFIG_ONLY -eq $BS_FALSE ]; then
